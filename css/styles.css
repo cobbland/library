@@ -17,26 +17,19 @@ body {
     font-family: system-ui;
 }
 
-img, picture, video, canvas, svg {
-    max-width: 100%; /* Use `max-width: revert;` if an image is meant to overflow */
-}
-
 input, button, textarea, select {
     font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6, div, span {
     overflow-wrap: break-word;
-    padding-top: 1em;
-} /* Consider applying this to ALL elements. Also, consider adding `hyphen: auto;`. */ 
+}
 
-p {
+p, span {
     text-wrap: pretty; /* May have a performance impact. */
-} /* Remember to use `p` instead of `div` in your HTML if you want this to work. 
-  Also, consider setting `max-width: 60ch` or smaller. (ch being the width of "0" 
-  in given `font-size`. (Maybe this belongs on a parent element, though.)*/
+}
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, div {
     text-wrap: balance;
 }
 
