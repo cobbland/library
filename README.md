@@ -5,7 +5,7 @@ A The Odin Project project. The goal is to make a library webapp for saving book
 ## Todo
 
 - [x] Add general layout html
-- [ ] Add general css styles
+- [x] Add general css styles
 - [x] Add `myLibrary` array
 - [ ] Add `Book()` constructor
 - [ ] Add `addBookToLibrary()` function

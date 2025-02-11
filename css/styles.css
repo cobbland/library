@@ -14,10 +14,10 @@ Use `@import url("./cobbland-style.css");` to import into the default stylesheet
 
 body {
     line-height: 1.5; /* This requires customizing the line height for larger text. */
+    font-family: system-ui;
 }
 
 img, picture, video, canvas, svg {
-    display: block;
     max-width: 100%; /* Use `max-width: revert;` if an image is meant to overflow */
 }
 
@@ -27,7 +27,6 @@ input, button, textarea, select {
 
 p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
-    font-family: system-ui;
     padding-top: 1em;
 } /* Consider applying this to ALL elements. Also, consider adding `hyphen: auto;`. */ 
 
@@ -43,10 +42,160 @@ h1, h2, h3, h4, h5, h6 {
 
 /* End default styles. */
 
-h1 {
-    color: aquamarine;
+*:root {
+    --accent: #1992D4;
+    --accent-dim: #1992D466;
+    --main: #E2E8F0;
+    --accent-text: white;
+    --accent-text-dim: #ffffffcc;
+    --main-text: black;
+    --main-text-dim: #00000033;
+    --warning: #D22B2B;
 }
 
-p {
-    color: blue;
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin-bottom: auto;
+    box-shadow: 0px 3px 5px var(--main-text-dim);
+    z-index: 1;
+}
+
+
+div.logo {
+    color: var(--accent-text);
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: bold;
+    display: flex;
+    gap: 0.2em;
+    align-items: center;
+    margin-right: auto;
+    transition: 0.3s;
+}
+
+div.logo svg {
+    fill: var(--accent-text);
+    text-align: center;
+    display: block;
+    transition: 0.3s;
+}
+
+div.logo:hover,
+div.logo svg:hover {
+    color: var(--accent-text-dim);
+    fill: var(--accent-text-dim);
+    cursor: pointer;
+}
+
+.add-book {
+    background-color: var(--accent-text);
+    border-radius: 20px;
+    display: block;
+    padding: 0.5em 1em;
+    border: 0;
+    height: max-content;
+    margin-left: auto;
+    color: var(--accent);
+    fill: var(--accent);
+    transition: 0.3s;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.add-book:hover {
+    background-color: var(--accent-text-dim);
+    cursor: pointer;
+}
+
+footer {
+    background-color: var(--accent);
+    padding: 1rem;
+    margin-top: auto;
+}
+
+footer p {
+    color: var(--accent-text);
+    text-align: center;
+}
+
+.container {
+    background-color: var(--main);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    min-height: max-content;
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fit, min(300px, 100%));
+    grid-auto-rows: 375px;
+    justify-content: center;
+    align-content: center;
+}
+
+.book {
+    background-color: var(--accent-text);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px var(--main-text-dim);
+    display: grid;
+    grid-template-rows: repeat(4, 1fr) 2fr;
+    border-left: 13px solid var(--main-text-dim);
+    transition: 0.3s;
+}
+
+.book:hover {
+    border-left: 13px solid var(--accent);
+    box-shadow: 1px 1px 5px 2px var(--main-text-dim);
+}
+
+.book .book-title {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5em;
+}
+
+.book div {
+    font-size: 1.2em;
+}
+
+.book-buttons {
+    align-self: end;
+    justify-self: end;
+    fill: var(--main-text-dim);
+    transition: 0.3s;
+}
+
+.book-buttons:hover {
+    cursor: pointer;
+}
+
+.edit-book,
+.delete-book {
+    transition: 0.3s;
+    padding-left: 0.7em;
+}
+
+.edit-book:hover {
+    fill: var(--accent);
+}
+
+.delete-book:hover {
+    fill: var(--warning);
 }
