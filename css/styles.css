@@ -41,25 +41,31 @@ h1, h2, h3, h4, h5, h6, div {
     --main: #E2E8F0;
     --accent-text: white;
     --accent-text-dim: #ffffffcc;
-    --main-text: black;
+    --main-text: #000000bb;
     --main-text-dim: #00000033;
     --warning: #D22B2B;
+    --to-read: #F0B429;
+    --am-reading: #006C67;
+    --have-read: #1992D4;
 }
 
 html,
 body {
     height: 100%;
+    color: var(--main-text);
 }
 
 body {
     display: flex;
     flex-direction: column;
+    background-color: var(--main);
 }
 
 header {
     background-color: var(--accent);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     padding: 1rem;
     margin-bottom: auto;
@@ -71,12 +77,11 @@ header {
 div.logo {
     color: var(--accent-text);
     text-align: center;
-    font-size: 2.2em;
+    font-size: 2em;
     font-weight: bold;
     display: flex;
     gap: 0.2em;
     align-items: center;
-    margin-right: auto;
     transition: 0.3s;
 }
 
@@ -101,20 +106,23 @@ div.logo svg:hover {
     padding: 0.5em 1em;
     border: 0;
     height: max-content;
-    margin-left: auto;
     color: var(--accent);
     fill: var(--accent);
-    transition: 0.3s;
     font-size: 1.2em;
     font-weight: bold;
     display: flex;
     gap: 0.5em;
     align-items: center;
+    box-shadow: 1px 1px 5px var(--main-text-dim);
 }
 
 .add-book:hover {
-    background-color: var(--accent-text-dim);
     cursor: pointer;
+    box-shadow: inset 1px 1px 5px var(--main-text-dim);
+}
+
+.add-book:active {
+    box-shadow: inset 1px 1px 5px 2px var(--main-text-dim);
 }
 
 footer {
@@ -126,6 +134,49 @@ footer {
 footer p {
     color: var(--accent-text);
     text-align: center;
+}
+
+.search-sort {
+    margin: auto;
+    width: 100%;
+    padding: 1.5em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-sort svg {
+    fill: var(--main-text-dim);
+    transition: 0.3s;
+}
+
+.search-sort svg:hover {
+    fill: var(--main-text);
+    cursor: pointer;
+}
+
+.sort {
+    right: 1em;
+    position: absolute;
+}
+
+.search-sort input {
+    border: 0;
+    border-radius: 20px;
+    outline: none;
+    padding: 0.5em 1em;
+    box-shadow: inset 1px 1px 5px var(--main-text-dim);
+    font-size: 1.1em;
+    margin: auto;
+    width: min(75%, 375px);
+}
+
+.search-sort input:focus {
+    box-shadow: inset 1px 1px 5px 2px var(--main-text-dim);
+}
+
+.search-sort input::placeholder {
+    color: var(--main-text-dim);
 }
 
 .container {
@@ -151,11 +202,16 @@ footer p {
     grid-template-rows: repeat(4, 1fr) 2fr;
     border-left: 13px solid var(--main-text-dim);
     transition: 0.3s;
+    color: var(--main-text-dim);
+    outline: none;
 }
 
-.book:hover {
+.book:hover,
+.book:active,
+.book:focus {
     border-left: 13px solid var(--accent);
     box-shadow: 1px 1px 5px 2px var(--main-text-dim);
+    color: var(--main-text);
 }
 
 .book .book-title {
