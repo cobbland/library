@@ -4,6 +4,7 @@ const deleteButton = '<svg class="delete-book" height="2em" xmlns="http://www.w3
 const container = document.querySelector('.container');
 const addBookButton = document.querySelector('.add-book');
 const addBookDialog = document.querySelector('.add-book-dialog');
+const addBookForm = document.querySelector('.add-book-form');
 
 const myLibrary = [];
 
@@ -26,6 +27,10 @@ function addBookToLibrary(title, author, pages, status, array = myLibrary) {
 
 function displayBooks(libraryArray = myLibrary) {
     // take an array of books, display them on the page
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+    }
+
     for (let book in libraryArray) {
         const bookDiv = document.createElement('div');
         const bookTitle = document.createElement('div');
@@ -73,28 +78,33 @@ function displayBooks(libraryArray = myLibrary) {
     } 
 }
 
-function addBook() {
-    console.log('Add book button press!');
-    // add new book to library
-}
-
 function deleteBook() {
     console.log('Delete book press!')
     // delete book from library
 }
 
-
-
 addBookButton.addEventListener('click', (button) => {
-    addBook()
     addBookDialog.showModal();
     // make new book
 });
 
 addBookDialog.addEventListener('click', button => {
-    if (button.target.innerText === 'Cancel') {
+    if (button.target.getAttribute('value') === 'cancel') {
         addBookDialog.close();
-    }
+        addBookForm.reset();
+    } 
+})
+
+addBookForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const title = addBookForm['title-input'].value;
+    const author = addBookForm['author-input'].value;
+    const pages = addBookForm['page-count-input'].value;
+    const status = addBookForm['reading-status'].value;
+    addBookToLibrary(title, author, pages, status);
+    displayBooks();
+    addBookDialog.close();
+    addBookForm.reset();
 })
 
 container.addEventListener('click', (button) => {
@@ -102,18 +112,18 @@ container.addEventListener('click', (button) => {
 });
 
 
-addBookToLibrary('Pride and Prejudice', 'Jane Austen', 279, 'have read');
-addBookToLibrary('Moby Dick', 'Herman Melville', 635, 'to read');
-addBookToLibrary('Frankenstein', 'Mary Shelley', 280, 'am reading');
-addBookToLibrary('The Adventures of Sherlock Holmes', 'Arthur Conan Doyle', 307, 'have read');
-addBookToLibrary('Dracula', 'Bram Stoker', 418, 'to read');
-addBookToLibrary('The Picture of Dorian Gray', 'Oscar Wilde', 254, 'am reading');
-addBookToLibrary('Alice\'s Adventures in Wonderland', 'Lewis Carroll', 200, 'have read');
-addBookToLibrary('The Scarlet Letter', 'Nathaniel Hawthorne', 238, 'to read');
-addBookToLibrary('The War of the Worlds', 'H.G. Wells', 192, 'am reading');
-addBookToLibrary('The Count of Monte Cristo', 'Alexandre Dumas', 1276, 'have read');
-addBookToLibrary('Centauri Womb', 'Jacob Densford', 376, 'have read');
-addBookToLibrary('The Swallow and the Kitty Cat', 'Sai Densford', 32, 'have read');
-addBookToLibrary('Stimsticks and Asteroid Wars', 'Jacob Densford', 264, 'to read');
+// addBookToLibrary('Pride and Prejudice', 'Jane Austen', 279, 'have read');
+// addBookToLibrary('Moby Dick', 'Herman Melville', 635, 'to read');
+// addBookToLibrary('Frankenstein', 'Mary Shelley', 280, 'am reading');
+// addBookToLibrary('The Adventures of Sherlock Holmes', 'Arthur Conan Doyle', 307, 'have read');
+// addBookToLibrary('Dracula', 'Bram Stoker', 418, 'to read');
+// addBookToLibrary('The Picture of Dorian Gray', 'Oscar Wilde', 254, 'am reading');
+// addBookToLibrary('Alice\'s Adventures in Wonderland', 'Lewis Carroll', 200, 'have read');
+// addBookToLibrary('The Scarlet Letter', 'Nathaniel Hawthorne', 238, 'to read');
+// addBookToLibrary('The War of the Worlds', 'H.G. Wells', 192, 'am reading');
+// addBookToLibrary('The Count of Monte Cristo', 'Alexandre Dumas', 1276, 'have read');
+// addBookToLibrary('Centauri Womb', 'Jacob Densford', 376, 'have read');
+// addBookToLibrary('The Swallow and the Kitty Cat', 'Sai Densford', 32, 'have read');
+// addBookToLibrary('Stimsticks and Asteroid Wars', 'Jacob Densford', 264, 'to read');
 
-displayBooks()
+// displayBooks()
