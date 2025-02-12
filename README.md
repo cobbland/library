@@ -15,5 +15,5 @@ A The Odin Project project. The goal is to make a library webapp for saving book
 - [x] Add "Add Book" button and related form display—should pass data to `addBookToLibrary()`
 - [x] Add a button on each displayed book to remove the book (from the page and from `myLibrary`)
     - "need to associate your DOM elements with the actual book objects in some way. One easy solution is giving them a data-attribute that corresponds to the index of the library array"
-- [ ] Add a button on each displayed book to change its "read" status
+- [x] Add a button on each displayed book to change its "read" status
     - "will want to create `Book` prototype function that toggles a book instance’s read status"
