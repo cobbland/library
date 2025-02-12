@@ -72,6 +72,9 @@ header {
     margin-bottom: auto;
     box-shadow: 0px 3px 5px var(--main-text-dim);
     z-index: 1;
+    position: static;
+    flex-shrink: 0;
+    min-height: max-content;
 }
 
 
@@ -130,7 +133,10 @@ div.logo svg:hover {
 footer {
     background-color: var(--accent);
     padding: 1rem;
-    margin-top: 1.5em;
+    margin-top: auto;
+    flex-shrink: 0;
+    position: static;
+    min-height: max-content;
 }
 
 footer p {
@@ -141,7 +147,7 @@ footer p {
 .search-sort {
     margin: auto;
     width: 100%;
-    padding: 1.5em 1em;
+    margin-top: 1.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,7 +175,6 @@ footer p {
     padding: 0.5em 1em;
     box-shadow: inset 1px 1px 5px var(--main-text-dim);
     font-size: 1.1em;
-    margin: auto;
     width: min(75%, 375px);
 }
 
@@ -184,7 +189,7 @@ footer p {
 .container {
     flex-grow: 1;
     background-color: var(--main);
-    padding: 1rem;
+    padding: 2rem;
     width: 100%;
     height: 100%;
     min-height: max-content;

@@ -18,6 +18,13 @@ function Book(title, author, pages, status) {
 
 Book.prototype.editBook = function() {
     // edit book's read status
+    if (this.status === 'have read') {
+        this.status = 'to read';
+    } else if (this.status === 'to read') {
+        this.status = 'am reading';
+    } else {
+        this.status = 'have read';
+    }
 };
 
 function addBookToLibrary(title, author, pages, status, array = myLibrary) {
