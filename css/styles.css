@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6, div {
     --main-text-dim: #00000033;
     --warning: #D22B2B;
     --to-read: #F0B429;
-    --am-reading: #006C67;
+    --am-reading: #00A86B;
     --have-read: #1992D4;
 }
 
@@ -199,7 +199,7 @@ footer p {
     border-radius: 10px;
     box-shadow: 1px 1px 5px var(--main-text-dim);
     display: grid;
-    grid-template-rows: 3fr 2fr 1fr 1fr 2fr;
+    grid-template-rows: 4fr 2fr 2fr 2fr 1fr;
     border-left: 13px solid var(--main-text-dim);
     transition: 0.3s;
     color: var(--main-text-dim);
