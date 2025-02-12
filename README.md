@@ -10,7 +10,7 @@ A The Odin Project project. The goal is to make a library webapp for saving book
 - [x] Add `Book()` constructor
 - [x] Add `addBookToLibrary()` function
     - "can take some arguments, create a book from those arguments, and store the new book object into an array"
-- [ ] Add `displayBooks()` function
+- [x] Add `displayBooks()` function
     - "loops through the array and displays each book on the page"
 - [ ] Add "Add Book" button and related form display—should pass data to `addBookToLibrary()`
 - [ ] Add a button on each displayed book to remove the book (from the page and from `myLibrary`)
