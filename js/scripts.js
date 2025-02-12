@@ -1,5 +1,5 @@
-const editButton = '<svg class="edit-book" height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>edit</title><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>'
-const deleteButton = '<svg class="delete-book" height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete</title><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg>'
+const editButton = '<div class="edit-book"><svg height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>edit</title><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg></div>'
+const deleteButton = '<div class="delete-book"><svg height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete</title><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg></div>'
 
 const container = document.querySelector('.container');
 const addBookButton = document.querySelector('.add-book');
@@ -108,22 +108,29 @@ addBookForm.addEventListener('submit', (event) => {
 })
 
 container.addEventListener('click', (button) => {
-    // listen for buttons on books to be pressed, do something
+    console.log(button);
+    console.log(button.target);
+    if (button.target.closest('.delete-book')) {
+        const bookDiv = button.target.closest('.book');
+        const libIndex = bookDiv.getAttribute('lib-index');
+        myLibrary.splice(libIndex, 1);
+        displayBooks();
+    }
 });
 
 
-// addBookToLibrary('Pride and Prejudice', 'Jane Austen', 279, 'have read');
-// addBookToLibrary('Moby Dick', 'Herman Melville', 635, 'to read');
-// addBookToLibrary('Frankenstein', 'Mary Shelley', 280, 'am reading');
-// addBookToLibrary('The Adventures of Sherlock Holmes', 'Arthur Conan Doyle', 307, 'have read');
-// addBookToLibrary('Dracula', 'Bram Stoker', 418, 'to read');
-// addBookToLibrary('The Picture of Dorian Gray', 'Oscar Wilde', 254, 'am reading');
-// addBookToLibrary('Alice\'s Adventures in Wonderland', 'Lewis Carroll', 200, 'have read');
-// addBookToLibrary('The Scarlet Letter', 'Nathaniel Hawthorne', 238, 'to read');
-// addBookToLibrary('The War of the Worlds', 'H.G. Wells', 192, 'am reading');
-// addBookToLibrary('The Count of Monte Cristo', 'Alexandre Dumas', 1276, 'have read');
-// addBookToLibrary('Centauri Womb', 'Jacob Densford', 376, 'have read');
-// addBookToLibrary('The Swallow and the Kitty Cat', 'Sai Densford', 32, 'have read');
-// addBookToLibrary('Stimsticks and Asteroid Wars', 'Jacob Densford', 264, 'to read');
+addBookToLibrary('Pride and Prejudice', 'Jane Austen', 279, 'have read');
+addBookToLibrary('Moby Dick', 'Herman Melville', 635, 'to read');
+addBookToLibrary('Frankenstein', 'Mary Shelley', 280, 'am reading');
+addBookToLibrary('The Adventures of Sherlock Holmes', 'Arthur Conan Doyle', 307, 'have read');
+addBookToLibrary('Dracula', 'Bram Stoker', 418, 'to read');
+addBookToLibrary('The Picture of Dorian Gray', 'Oscar Wilde', 254, 'am reading');
+addBookToLibrary('Alice\'s Adventures in Wonderland', 'Lewis Carroll', 200, 'have read');
+addBookToLibrary('The Scarlet Letter', 'Nathaniel Hawthorne', 238, 'to read');
+addBookToLibrary('The War of the Worlds', 'H.G. Wells', 192, 'am reading');
+addBookToLibrary('The Count of Monte Cristo', 'Alexandre Dumas', 1276, 'have read');
+addBookToLibrary('Centauri Womb', 'Jacob Densford', 376, 'have read');
+addBookToLibrary('The Swallow and the Kitty Cat', 'Sai Densford', 32, 'have read');
+addBookToLibrary('Stimsticks and Asteroid Wars', 'Jacob Densford', 264, 'to read');
 
-// displayBooks()
+displayBooks()
