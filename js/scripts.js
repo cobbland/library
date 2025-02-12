@@ -115,12 +115,15 @@ addBookForm.addEventListener('submit', (event) => {
 })
 
 container.addEventListener('click', (button) => {
-    console.log(button);
-    console.log(button.target);
     if (button.target.closest('.delete-book')) {
         const bookDiv = button.target.closest('.book');
         const libIndex = bookDiv.getAttribute('lib-index');
         myLibrary.splice(libIndex, 1);
+        displayBooks();
+    } else if (button.target.closest('.edit-book')) {
+        const bookDiv = button.target.closest('.book');
+        const libIndex = bookDiv.getAttribute('lib-index');
+        myLibrary[libIndex].editBook();
         displayBooks();
     }
 });
