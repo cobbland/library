@@ -1,7 +1,8 @@
-const editButton = '<svg class="edit-book" height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>pencil</title><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>'
+const editButton = '<svg class="edit-book" height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>edit</title><path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" /></svg>'
 const deleteButton = '<svg class="delete-book" height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete</title><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg>'
 
 const container = document.querySelector('.container');
+const addBookButton = document.querySelector('.add-book')
 
 const myLibrary = [];
 
@@ -12,6 +13,10 @@ function Book(title, author, pages, status) {
   this.pages = pages;
   this.status = status;
 }
+
+Book.prototype.editBook = function() {
+    // edit book's read status
+};
 
 function addBookToLibrary(title, author, pages, status, array = myLibrary) {
   // take params, create a book then store it in the array
@@ -29,6 +34,7 @@ function displayBooks(libraryArray = myLibrary) {
         const bookButtons = document.createElement('div');
 
         bookDiv.setAttribute('tabindex', '0');
+        bookDiv.setAttribute('lib-index', book);
 
         bookDiv.classList.add('book');
         bookTitle.classList.add('book-title');
@@ -65,6 +71,27 @@ function displayBooks(libraryArray = myLibrary) {
         bookDiv.appendChild(bookButtons);
     } 
 }
+
+function addBook() {
+    console.log('Add book button press!');
+    // add new book to library
+}
+
+function deleteBook() {
+    console.log('Delete book press!')
+    // delete book from library
+}
+
+
+
+addBookButton.addEventListener('click', (button) => {
+    addBook()
+    // make new book
+});
+
+container.addEventListener('click', (button) => {
+    // listen for buttons on books to be pressed, do something
+});
 
 
 addBookToLibrary('Centauri Womb', 'Jacob Densford', 376, 'am reading');
