@@ -7,8 +7,8 @@ A The Odin Project project. The goal is to make a library webapp for saving book
 - [x] Add general layout html
 - [x] Add general css styles
 - [x] Add `myLibrary` array
-- [ ] Add `Book()` constructor
-- [ ] Add `addBookToLibrary()` function
+- [x] Add `Book()` constructor
+- [x] Add `addBookToLibrary()` function
     - "can take some arguments, create a book from those arguments, and store the new book object into an array"
 - [ ] Add `displayBooks()` function
     - "loops through the array and displays each book on the page"

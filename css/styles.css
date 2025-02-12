@@ -128,7 +128,7 @@ div.logo svg:hover {
 footer {
     background-color: var(--accent);
     padding: 1rem;
-    margin-top: auto;
+    margin-top: 1.5em;
 }
 
 footer p {
