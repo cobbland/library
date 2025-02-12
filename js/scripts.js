@@ -2,7 +2,8 @@ const editButton = '<svg class="edit-book" height="2em" xmlns="http://www.w3.org
 const deleteButton = '<svg class="delete-book" height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete</title><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg>'
 
 const container = document.querySelector('.container');
-const addBookButton = document.querySelector('.add-book')
+const addBookButton = document.querySelector('.add-book');
+const addBookDialog = document.querySelector('.add-book-dialog');
 
 const myLibrary = [];
 
@@ -86,8 +87,15 @@ function deleteBook() {
 
 addBookButton.addEventListener('click', (button) => {
     addBook()
+    addBookDialog.showModal();
     // make new book
 });
+
+addBookDialog.addEventListener('click', button => {
+    if (button.target.innerText === 'Cancel') {
+        addBookDialog.close();
+    }
+})
 
 container.addEventListener('click', (button) => {
     // listen for buttons on books to be pressed, do something

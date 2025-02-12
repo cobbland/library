@@ -114,6 +114,7 @@ div.logo svg:hover {
     gap: 0.5em;
     align-items: center;
     box-shadow: 1px 1px 5px var(--main-text-dim);
+    outline: none;
 }
 
 .add-book:hover {
@@ -264,4 +265,116 @@ footer p {
 
 .delete-book:hover {
     fill: var(--warning);
+}
+
+dialog {
+    background-color: var(--accent-text);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px var(--main-text-dim);
+    color: var(--main-text);
+    outline: none;
+    width: min(375px, 100%);
+    height: min(450px, 100%);
+    margin: auto;
+    border: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr 2fr;
+    align-items: center;
+}
+
+dialog > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+dialog:not([open]) {
+    display: none;
+}
+
+::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+dialog h2 {
+    text-align: center;
+}
+
+dialog label {
+    font-weight: bold;
+}
+
+dialog input[type='text'],
+dialog input[type='tel'] {
+    border: 0;
+    border-radius: 20px;
+    outline: none;
+    padding: 0.3em 1em;
+    box-shadow: inset 1px 1px 5px var(--main-text-dim);
+    font-size: 1.1em;
+    margin: 0;
+    width: min(75%, 375px);
+}
+
+dialog input[type='text']:focus,
+dialog input[type='tel']:focus {
+    box-shadow: inset 1px 1px 5px 2px var(--main-text-dim);
+}
+
+.read-status-div {
+    border: 0;
+    padding-left: 0;
+}
+
+.read-status-div legend {
+    font-weight: bold;
+}
+
+.read-status-div label {
+    font-weight: unset;
+}
+
+.read-status-div > div {
+    display: inline;
+    margin-right: 0.5em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    grid-row: 6 / 7;
+}
+
+dialog button {
+    border-radius: 20px;
+    display: block;
+    padding: 0.5em 1em;
+    border: 0;
+    height: max-content;
+    color: var(--accent-text);
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 1px 1px 5px var(--main-text-dim);
+    outline: none;
+    width: 120px;
+}
+
+.add {
+    background-color: var(--am-reading);
+}
+
+.cancel {
+    background-color: var(--warning);
+}
+
+dialog button:hover {
+    cursor: pointer;
+    box-shadow: inset 1px 1px 5px var(--main-text-dim);
+}
+
+dialog button:active {
+    box-shadow: inset 1px 1px 5px 2px var(--main-text-dim);
 }

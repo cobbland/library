@@ -61,5 +61,40 @@
         <p>Footer goes here.</p>
     </footer>
 
+    <dialog class="add-book-dialog">
+        <h2>Add Book</h2>
+        <div class="title-div">
+            <label for="title-input">Title</label>
+            <input type="text" name="title-input" id="title-input">
+        </div>
+        <div class="author-div">
+            <label for="author-input">Author</label>
+            <input type="text" name="author-input" id="author-input">
+        </div>
+        <div class="page-count-div">
+            <label for="page-count-input">Pages</label>
+            <input type="tel" name="page-count-input" id="page-count-input">
+        </div>
+        <fieldset class="read-status-div">
+            <legend>Status</legend>
+            <div>
+                <input type="radio" name="reading-status" id="to-read" value="to-read">
+                <label for="to-read">to read</label>
+            </div>
+            <div>
+                <input type="radio" name="reading-status" id="am-reading" value="am-reading">
+                <label for="am-reading">am reading</label>
+            </div>
+            <div>
+                <input type="radio" name="reading-status" id="have-read" value="have-read">
+                <label for="have-read">have read</label>
+            </div>
+        </fieldset>
+        <div class="buttons">
+            <button class="add" type="submit">Add</button>
+            <button class="cancel" type="button">Cancel</button>
+        </div>
+    </dialog>
+
 </body>
 </html>
