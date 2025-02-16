@@ -8,24 +8,25 @@ const addBookForm = document.querySelector('.add-book-form');
 
 const myLibrary = [];
 
-function Book(title, author, pages, status) {
+class Book {
   // the constructor...
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-}
-
-Book.prototype.editBook = function() {
-    // edit book's read status
-    if (this.status === 'have read') {
-        this.status = 'to read';
-    } else if (this.status === 'to read') {
-        this.status = 'am reading';
-    } else {
-        this.status = 'have read';
+    constructor(title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
     }
-};
+
+    editBook() {
+        if (this.status === 'have read') {
+            this.status = 'to read';
+        } else if (this.status === 'to read') {
+            this.status = 'am reading';
+        } else {
+            this.status = 'have read';
+        }
+    }
+}
 
 function addBookToLibrary(title, author, pages, status, array = myLibrary) {
   // take params, create a book then store it in the array
@@ -83,11 +84,6 @@ function displayBooks(libraryArray = myLibrary) {
         bookDiv.appendChild(readStatus);
         bookDiv.appendChild(bookButtons);
     } 
-}
-
-function deleteBook() {
-    console.log('Delete book press!')
-    // delete book from library
 }
 
 addBookButton.addEventListener('click', (button) => {
