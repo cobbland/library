@@ -198,7 +198,8 @@ footer p {
     grid-template-columns: repeat(auto-fit, min(300px, 100%));
     grid-auto-rows: 375px;
     justify-content: center;
-    align-content: center;
+    /* align-content: center;  */
+    /* Removed above because it was breaking the page in Firefox */
 }
 
 .book {
